@@ -38,16 +38,4 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/user")
-                .permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .cors()
-                .and()
-                .csrf().disable();
-    }
 }
